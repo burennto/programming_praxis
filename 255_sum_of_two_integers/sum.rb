@@ -11,10 +11,11 @@ module Ex255
     
     def sum_checker list, target
       combinations = list.combination(2)
-      pairs = combinations.reduce([]) do |sums_to_target, pair|
-        sums_to_target << pair if pair.reduce(:+) == target
-        sums_to_target
+      pairs = combinations.reduce([]) do |memo, pair|
+        memo << pair if pair.reduce(:+) == target
+        memo
       end
+      
       pairs.empty? ? nil : pairs
     end
     
